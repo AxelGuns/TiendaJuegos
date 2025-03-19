@@ -1,0 +1,308 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #111;
+    color: #fff;
+    margin: 0;
+}
+
+/* ======= Header (Menú de Navegación) ======= */
+header {
+    background-color: #222;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo */
+.logo h1 {
+    font-size: 24px;
+    color: #fff;
+    font-weight: 700;
+}
+
+/* Menú */
+nav.menu {
+    display: flex;
+}
+
+nav.menu ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+}
+
+nav.menu ul li {
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Hover del menú */
+nav.menu ul li:hover {
+    background-color: #ff6f61;
+    border-radius: 5px;
+    transform: scale(1.1);
+}
+
+/* ======= Hero Section ======= */
+.hero {
+    background: url('banne.png') no-repeat center center/cover;
+    text-align: center;
+    padding: 100px 20px;
+    color: white;
+}
+
+
+.hero-content {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: inline-block;
+    padding: 40px;
+}
+
+.hero h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.hero button {
+    padding: 10px 20px;
+    background-color: #ff6f61;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.hero button:hover {
+    background-color: #e55a50;
+}
+
+/* ======= Categorías de Productos ======= */
+.categories {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.categories h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.category-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.category {
+    background-color: #333;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(255, 111, 97, 0.3);
+}
+
+.category h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.category img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* ======= Productos Destacados ======= */
+.featured-products {
+    padding: 40px 20px;
+    background-color: #222;
+    text-align: center;
+}
+
+.featured-products h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.product-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.product {
+    background-color: #333;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+    width: 200px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(255, 111, 97, 0.3);
+}
+
+.product img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.product button {
+    padding: 10px 20px;
+    background-color: #ff6f61;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.product button:hover {
+    background-color: #e55a50;
+}
+
+/* ======= Responsividad ======= */
+@media (max-width: 768px) {
+    .category-container, .product-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .category, .product {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+
+    /* Ajuste del menú en dispositivos móviles */
+    nav.menu ul {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    nav.menu ul li {
+        padding: 10px;
+    }
+}
+
+/* Estilos para la sección de Categorías */
+.categories {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.categories h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.category-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.category {
+    width: 30%;
+    margin-bottom: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.category h4 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.category img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+}
+/* Efecto de hover en el botón "Comprar" */
+button {
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #ff4500;
+    transform: scale(1.1);
+}
+
+/* Animación de fade-in en imágenes */
+.product img {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+/* Cuando la imagen está cargada */
+.product img.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Transición suave entre páginas */
+body {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Cuando la página está cargada */
+body.loaded {
+    opacity: 1;
+}
+
+img {
+    
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+.cart {
+    font-size: 1.5em;
+    top: 20px;
+    right: 20px;
+    background: #f8f8f8;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    
+}
+
+#cart-counter {
+    font-weight: bold;
+    color: red;
+}
+header {
+    padding-right: 10px; /* Disminuye el espacio derecho */
+}
