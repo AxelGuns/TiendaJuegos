@@ -15,80 +15,101 @@
         </div>
         <nav class="menu">
             <ul>
-                <li class="menu-item">Teclados</li>
-                <li class="menu-item">Ratones</li>
-                <li class="menu-item">Auriculares</li>
-                <li class="menu-item">Sillas</li>
-                <li class="menu-item">Monitores</li>
+                <li class="menu-item" data-category="teclados">Teclados</li>
+                <li class="menu-item" data-category="ratones">Ratones</li>
+                <li class="menu-item" data-category="auriculares">Auriculares</li>
+                <li class="menu-item" data-category="sillas">Sillas</li>
+                <li class="menu-item" data-category="monitores">Monitores</li>
             </ul>
         </nav>
-        <div class="cart">
+        <div class="cart" id="cart">
             🛒 <span id="cart-counter">0</span>
         </div>
     </header>
 
-    <!-- Hero Section con Imagen de Fondo -->
-    <section class="hero">
-        <div class="hero-content">
-            <h2>Bienvenido a Gamer Shop</h2>
-            <p>Los mejores periféricos para tu experiencia gaming.</p>
-            <button>Explorar Productos</button>
+    <!-- Modal del Carrito -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <h3>Carrito de Compras</h3>
+            <ul id="cart-items">
+                <!-- Los productos se añadirán aquí dinámicamente -->
+            </ul>
         </div>
-    </section>
+    </div>
 
-    <!-- Categorías de Productos -->
-    <section class="categories">
-        <h3>Categorías de Productos</h3>
-        <div class="category-container">
-            <div class="category" id="teclados-category">
-                <h4>Teclados Gaming</h4>
-                <img src="teclado.jpg" alt="Teclados Gaming">
+    <!-- Contenido Principal -->
+    <main id="main-content">
+        <!-- Hero Section con Imagen de Fondo -->
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Bienvenido a Gamer Shop</h2>
+                <p>Los mejores periféricos para tu experiencia gaming.</p>
+                <button>Explorar Productos</button>
             </div>
-            <div class="category" id="ratones-category">
-                <h4>Ratones Gaming</h4>
-                <img src="mouse.jpg" alt="Ratones Gaming">
-            </div>
-            <div class="category" id="auriculares-category">
-                <h4>Auriculares Gaming</h4>
-                <img src="audifonos.jpg" alt="Auriculares Gaming">
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Productos Destacados -->
-    <section class="featured-products">
-        <h3>Productos Destacados</h3>
-        <div class="product-container">
-            <div class="product">
-                <img src="dycky.png" alt="Producto 1">
-                <p>Ducky One Mini</p>
-                <button class="add-to-cart">Comprar</button>
+        <!-- Categorías de Productos -->
+        <section class="categories">
+            <h3>Categorías de Productos</h3>
+            <div class="category-container">
+                <div class="category" id="teclados-category">
+                    <h4>Teclados Gaming</h4>
+                    <img src="teclado.jpg" alt="Teclados Gaming">
+                </div>
+                <div class="category" id="ratones-category">
+                    <h4>Ratones Gaming</h4>
+                    <img src="mouse.jpg" alt="Ratones Gaming">
+                </div>
+                <div class="category" id="auriculares-category">
+                    <h4>Auriculares Gaming</h4>
+                    <img src="audifonos.jpg" alt="Auriculares Gaming">
+                </div>
             </div>
-            <div class="product">
-                <img src="logitech.png" alt="Producto 2">
-                <p>Logitech G502</p>
-                <button class="add-to-cart">Comprar</button>
+        </section>
+
+        <!-- Productos Destacados -->
+        <section class="featured-products">
+            <h3>Productos Destacados</h3>
+            <div class="product-container">
+                <div class="product">
+                    <img src="dycky.png" alt="Producto 1">
+                    <p>Ducky One Mini</p>
+                    <button class="add-to-cart">Comprar</button>
+                </div>
+                <div class="product">
+                    <img src="logitech.png" alt="Producto 2">
+                    <p>Logitech G502</p>
+                    <button class="add-to-cart">Comprar</button>
+                </div>
+                <div class="product">
+                    <img src="herp.png" alt="Producto 3">
+                    <p>HyperX Cloud 2</p>
+                    <button class="add-to-cart">Comprar</button>
+                </div>
+                <div class="product">
+                    <img src="razer.png" alt="Producto 4">
+                    <p>Razer Seiren</p>
+                    <button class="add-to-cart">Comprar</button>
+                </div>
+                <div class="product">
+                    <img src="monitor.jpg" alt="Producto 5">
+                    <p>ASUS ROG Swift</p>
+                    <button class="add-to-cart">Comprar</button>
+                </div>
+                <div class="product">
+                    <img src="silla.png" alt="Producto 6">
+                    <p>Asus ROG Destrier </p>
+                    <button class="add-to-cart">Comprar</button>
+                </div>
             </div>
-            <div class="product">
-                <img src="herp.png" alt="Producto 3">
-                <p>HyperX Cloud 2</p>
-                <button class="add-to-cart">Comprar</button>
-            </div>
-            <div class="product">
-                <img src="razer.png" alt="Producto 4">
-                <p>Razer Seiren</p>
-                <button class="add-to-cart">Comprar</button>
-            </div>
-            <div class="product">
-                <img src="monitor.jpg" alt="Producto 5">
-                <p>ASUS ROG Swift</p>
-                <button class="add-to-cart">Comprar</button>
-            </div>
-            <div class="product">
-                <img src="silla.png" alt="Producto 6">
-                <p>Asus ROG Destrier </p>
-                <button class="add-to-cart">Comprar</button>
-            </div>
+        </section>
+    </main>
+
+    <!-- Sección de Productos por Categoría (oculta inicialmente) -->
+    <section id="productos-categoria" class="featured-products" style="display: none;">
+        <h3 id="categoria-titulo">Productos de <span id="categoria-nombre"></span></h3>
+        <div class="product-container" id="product-container">
+            <!-- Los productos se cargarán aquí dinámicamente -->
         </div>
     </section>
 

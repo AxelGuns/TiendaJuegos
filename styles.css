@@ -10,6 +10,12 @@ body {
     background-color: #111;
     color: #fff;
     margin: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+body.loaded {
+    opacity: 1;
 }
 
 /* ======= Header (Menú de Navegación) ======= */
@@ -19,6 +25,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-right: 10px; /* Disminuye el espacio derecho */
 }
 
 /* Logo */
@@ -58,6 +65,22 @@ nav.menu ul li:hover {
     transform: scale(1.1);
 }
 
+/* Carrito */
+.cart {
+    font-size: 1.5em;
+    cursor: pointer;
+    position: relative;
+    background: #f8f8f8;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#cart-counter {
+    font-weight: bold;
+    color: red;
+    margin-left: 5px;
+}
+
 /* ======= Hero Section ======= */
 .hero {
     background: url('banne.png') no-repeat center center/cover;
@@ -65,7 +88,6 @@ nav.menu ul li:hover {
     padding: 100px 20px;
     color: white;
 }
-
 
 .hero-content {
     background-color: rgba(0, 0, 0, 0.5);
@@ -104,7 +126,7 @@ nav.menu ul li:hover {
 }
 
 .categories h3 {
-    font-size: 28px;
+    font-size: 2rem;
     margin-bottom: 20px;
 }
 
@@ -120,6 +142,9 @@ nav.menu ul li:hover {
     margin: 10px;
     border-radius: 8px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 30%;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .category:hover {
@@ -128,12 +153,14 @@ nav.menu ul li:hover {
 }
 
 .category h4 {
-    font-size: 20px;
+    font-size: 1.5rem;
     margin-bottom: 10px;
 }
 
 .category img {
     width: 100%;
+    max-width: 200px;
+    height: auto;
     border-radius: 8px;
 }
 
@@ -174,6 +201,14 @@ nav.menu ul li:hover {
     width: 100%;
     border-radius: 8px;
     margin-bottom: 15px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.product img.loaded {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .product button {
@@ -183,10 +218,61 @@ nav.menu ul li:hover {
     color: white;
     cursor: pointer;
     font-size: 16px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s;
 }
 
 .product button:hover {
+    background-color: #e55a50;
+    transform: scale(1.1);
+}
+
+/* ======= Modal del Carrito ======= */
+.modal {
+    display: none;
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.modal-content {
+    color: white;
+}
+
+.modal-content h3 {
+    margin-bottom: 15px;
+}
+
+#cart-items {
+    list-style: none;
+}
+
+#cart-items li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #555;
+}
+
+#cart-items li:last-child {
+    border-bottom: none;
+}
+
+#cart-items button {
+    background-color: #ff6f61;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#cart-items button:hover {
     background-color: #e55a50;
 }
 
@@ -212,97 +298,102 @@ nav.menu ul li:hover {
     nav.menu ul li {
         padding: 10px;
     }
+
+    .modal {
+        width: 90%;
+        right: 5%;
+    }
 }
 
-/* Estilos para la sección de Categorías */
-.categories {
-    padding: 40px 20px;
-    text-align: center;
-}
-
-.categories h3 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-.category-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.category {
-    width: 30%;
-    margin-bottom: 20px;
-    padding: 10px;
-    box-sizing: border-box;
-    text-align: center;
-}
-
-.category h4 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-}
-
-.category img {
-    width: 100%;
-    max-width: 200px;
-    height: auto;
-}
-/* Efecto de hover en el botón "Comprar" */
-button {
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-button:hover {
-    background-color: #ff4500;
-    transform: scale(1.1);
-}
-
-/* Animación de fade-in en imágenes */
-.product img {
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-}
-
-/* Cuando la imagen está cargada */
-.product img.loaded {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Transición suave entre páginas */
-body {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
-
-/* Cuando la página está cargada */
-body.loaded {
-    opacity: 1;
-}
-
-img {
-    
-    visibility: visible !important;
-    opacity: 1 !important;
-}
-.cart {
-    font-size: 1.5em;
-    top: 20px;
+/* ======= Modal del Carrito ======= */
+.modal {
+    display: none;
+    position: fixed;
+    top: 80px; /* Ajusta la posición vertical */
     right: 20px;
-    background: #f8f8f8;
-    padding: 10px;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    width: 350px; /* Ancho más grande */
+    max-height: 80vh; /* Altura máxima */
+    overflow-y: auto; /* Scroll si hay muchos productos */
+}
+
+.modal-content {
+    color: white;
+}
+
+.modal-content h3 {
+    margin-bottom: 20px;
+    font-size: 24px; /* Título más grande */
+    text-align: center;
+}
+
+#cart-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#cart-items li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0; /* Más espacio entre productos */
+    border-bottom: 1px solid #555;
+}
+
+#cart-items li:last-child {
+    border-bottom: none;
+}
+
+#cart-items .product-info {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espacio entre imagen y nombre */
+}
+
+#cart-items img {
+    width: 60px; /* Imagen más grande */
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover; /* Asegura que la imagen no se deforme */
+}
+
+#cart-items span {
+    font-size: 16px; /* Texto más grande */
+}
+
+#cart-items button {
+    background-color: #ff6f61;
+    border: none;
+    color: white;
+    padding: 8px 12px;
     border-radius: 5px;
     cursor: pointer;
-    
+    font-size: 14px;
+    transition: background-color 0.3s ease;
 }
 
-#cart-counter {
-    font-weight: bold;
-    color: red;
+#cart-items button:hover {
+    background-color: #e55a50;
 }
-header {
-    padding-right: 10px; /* Disminuye el espacio derecho */
+/* ======= Modal del Carrito ======= */
+/* ======= Modal del Carrito ======= */
+/* ======= Modal del Carrito ======= */
+.modal {
+    display: none;
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    width: 350px;
+    max-height: 80vh;
+    overflow-y: auto;
 }
